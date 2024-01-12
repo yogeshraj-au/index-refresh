@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: index-refresh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: index-refresh
+  template:
+    metadata:
+      labels:
+        app: index-refresh
+    spec:
+      containers:
+        - name: index
+          image: docker.io/imageimpressario/index-refresh
+      env:
+        - name: username
+          value: "admin"
+        - name: password
+          value: "admin"
+        - name: url
+          value: https://localhost:9200
