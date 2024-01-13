@@ -1,4 +1,5 @@
 from opensearchpy import OpenSearch
+import os
 
 def login_opensearch(username, password, opensearch_url):
     # Connect to OpenSearch
